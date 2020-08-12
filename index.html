@@ -9,7 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-
+    <link rel="style/css" href="assets/style.css">
     <title>Weather Dashboard</title>
 </head>
 
@@ -19,34 +19,26 @@
     </nav>
     <div class="main container">
         <div class="div row">
+            <!--creating first column with search bar-->
             <div class="div col-4 search-bar">
-                <ul class="list-group">
-                    <li class="list-group-item">Cras justo odio</li>
-                    <li class="list-group-item">Dapibus ac facilisis in</li>
-                    <li class="list-group-item">Morbi leo risus</li>
-                    <li class="list-group-item">Porta ac consectetur ac</li>
-                    <li class="list-group-item">Vestibulum at eros</li>
-                  </ul>
+                <h3>Search For Your City</h3>
+               <input type="text" placeholder="Type Your City"/>
+               <button id="search-button">Search</button>
             </div>
             <div class="div col-8">
+                <!--current weather section-->
                 <div class="div row">
-                    <div class="div col">
-                        <div class="card city-weather">
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Cras justo odio</li>
-                                <li class="list-group-item">Dapibus ac facilisis in</li>
-                                <li class="list-group-item">Vestibulum at eros</li>
-                            </ul>
+                    <div class="div col" id="city-weather">
+                        <div >
+                            
                         </div>
                     </div>
                 </div>
+                <!--5-day forecast row-->
                 <div class="div row">
                     <div class="div col five-day">
                         <h3>5-Day Forecast:</h3>
-                        <button type="button" class="btn btn-primary">Primary</button>
-                        <button type="button" class="btn btn-secondary">Secondary</button>
-                        <button type="button" class="btn btn-success">Success</button>
-                        <button type="button" class="btn btn-danger">Danger</button>
+                        
                     </div>
                 </div>
             </div>
