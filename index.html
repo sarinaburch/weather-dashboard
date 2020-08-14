@@ -20,12 +20,13 @@
     <div class="main container">
         <div class="div row">
             <!--creating first column with search bar-->
-            <div class="div col-4 search-bar">
-                <h3>Search For Your City</h3>
-               <input type="text" placeholder="Type Your City"/>
-               <button id="search-button">Search</button>
+            <div class="div col-4 ">
+                <h3>Search For Your City:</h3>
+               <input type="text" placeholder="Type Your City"class="search-bar"/>
+               <button class="search-button">Search</button>
             </div>
-            <div class="div col-8">
+            <div class="div row">
+            <div class="div col-1">
                 <!--current weather section-->
                 <div class="div row">
                     <div class="div col" id="city-weather">
@@ -34,12 +35,57 @@
                         </div>
                     </div>
                 </div>
+            </div>
                 <!--5-day forecast row-->
                 <div class="div row">
+                    
+                    <h3>5-Day Forecast:</h3>
                     <div class="div col five-day">
-                        <h3>5-Day Forecast:</h3>
-                        
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                              <h5 class="card-title">Date</h5>
+                              <h6 class="card-subtitle mb-2 text-muted">Temp</h6>
+                              <p class="card-text">Humidity</p>
+                            </div>
+                          </div>
                     </div>
+                    <div class="div col">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                              <h5 class="card-title">Date</h5>
+                              <h6 class="card-subtitle mb-2 text-muted">Temp</h6>
+                              <p class="card-text">Humidity</p>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="div col">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                              <h5 class="card-title">Date</h5>
+                              <h6 class="card-subtitle mb-2 text-muted">Temp</h6>
+                              <p class="card-text">Humidity</p>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="div col">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                              <h5 class="card-title">Date</h5>
+                              <h6 class="card-subtitle mb-2 text-muted">Temp</h6>
+                              <p class="card-text">Humidity</p>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="div col">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                              <h5 class="card-title">Date</h5>
+                              <h6 class="card-subtitle mb-2 text-muted">Temp</h6>
+                              <p class="card-text">Humidity</p>
+                            </div>
+                          </div>
+                    </div>
+                    
                 </div>
             </div>
         </div>
