@@ -14,81 +14,37 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-light bg-light">
+    <nav class="navbar navbar-light">
         <span class="navbar-brand h1" style="text-align: center;">Weather Dashboard</span>
     </nav>
     <div class="main container">
         <div class="div row">
             <!--creating first column with search bar-->
-            <div class="div col-4 ">
+            <div class="div col-4">
                 <h3>Search For Your City:</h3>
-               <input type="text" placeholder="Type Your City"class="search-bar"/>
-               <button class="search-button">Search</button>
+                <input type="text" placeholder="Type Your City" id="search-bar" />
+                <button id="search-button">Search</button>
             </div>
-            <div class="div row">
-            <div class="div col-1">
-                <!--current weather section-->
-                <div class="div row">
-                    <div class="div col" id="city-weather">
-                        <div >
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-                <!--5-day forecast row-->
-                <div class="div row">
-                    
-                    <h3>5-Day Forecast:</h3>
-                    <div class="div col five-day">
-                        <div class="card" style="width: 18rem;">
-                            <div class="card-body">
-                              <h5 class="card-title">Date</h5>
-                              <h6 class="card-subtitle mb-2 text-muted">Temp</h6>
-                              <p class="card-text">Humidity</p>
-                            </div>
-                          </div>
-                    </div>
-                    <div class="div col">
-                        <div class="card" style="width: 18rem;">
-                            <div class="card-body">
-                              <h5 class="card-title">Date</h5>
-                              <h6 class="card-subtitle mb-2 text-muted">Temp</h6>
-                              <p class="card-text">Humidity</p>
-                            </div>
-                          </div>
-                    </div>
-                    <div class="div col">
-                        <div class="card" style="width: 18rem;">
-                            <div class="card-body">
-                              <h5 class="card-title">Date</h5>
-                              <h6 class="card-subtitle mb-2 text-muted">Temp</h6>
-                              <p class="card-text">Humidity</p>
-                            </div>
-                          </div>
-                    </div>
-                    <div class="div col">
-                        <div class="card" style="width: 18rem;">
-                            <div class="card-body">
-                              <h5 class="card-title">Date</h5>
-                              <h6 class="card-subtitle mb-2 text-muted">Temp</h6>
-                              <p class="card-text">Humidity</p>
-                            </div>
-                          </div>
-                    </div>
-                    <div class="div col">
-                        <div class="card" style="width: 18rem;">
-                            <div class="card-body">
-                              <h5 class="card-title">Date</h5>
-                              <h6 class="card-subtitle mb-2 text-muted">Temp</h6>
-                              <p class="card-text">Humidity</p>
-                            </div>
-                          </div>
-                    </div>
-                    
-                </div>
+
+            <!--current weather section-->
+            <div class="div col-8" >
+                <h3 id="city-weather"></h3>
+                <div id="temperature">Temperature: </div>
+                <div id="humidity">Humidity: </div>
+                <div id="windSpeed">Wind Speed: </div>
+                <div id="uvIndex">UV Index: </div>
+            
             </div>
         </div>
+            <!--5-day forecast row-->
+            <div>
+                <h3>5-Day Forecast:</h3>
+            </div>
+            <div class="div row-" id="five-day">
+        
+        </div>
+
+
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -101,6 +57,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="assets/script.js"></script>
 </body>
 
 </html>
