@@ -1,15 +1,14 @@
 
 
 // creating global variables
-var cityWeather = ("city-weather");
-var searchedCities;
+var cityWeather = $("#city-weather");
+var searchBar = $("#search-bar");
+var searchedCities = $("#search-button");
 
-if (localStorage.getItem("localWeatherSearches")) {
-    citiesArray = JSON.parse(localStorage.getItem("localWeatherSearches"));
-    writeSearchHistory(searchedCities);
-} else {
-    searchedCities = [];
-};
+searchedCities.push(searchBar);
+localStorage.setItem("searchBar", JSON.stringify(searchedCities));
+
+$("#previous-searches") = JSON.parse(localStorage.getItem("searchBar"));
 
 // creating funtionality to search button and adding to local storage and adding API Key
 
@@ -48,26 +47,26 @@ $("#search-button").on("click", function (event) {
         method: "GET"
     }).then(function (response) {
         var fiveDiv = ("#five-day");
-        
- 
+
+
         for (var i = 0; i < response.list.length; i++) {
 
-            
+
             var temp = response.list[i].temperature;
             var tempF = (temp - 273.15) * 1.8 + 32;
 
-                var card = $("<div>")
-                card.text("date");
-                $("#five-day").append(card);
+            var card = $("<div>")
+            card.text("date");
+            $("#five-day").append(card);
 
-                var div1 = tempF;
-                var tempDiv = $("<div>");
-                tempDiv.text(div1);
-                card.append(tempDiv);
+            var div1 = tempF;
+            var tempDiv = $("<div>");
+            tempDiv.text(div1);
+            card.append(tempDiv);
 
-                var div2 = $("<div>")
-                div2.text(response.list[i].humidity)
-                div1.append(div2);
+            var div2 = $("<div>")
+            div2.text(response.list[i].humidity)
+            div1.append(div2);
 
 
         }
