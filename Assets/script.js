@@ -60,7 +60,7 @@ $("#search-button").on("click", function (event) {
                 card.text("date");
                 $("#five-day").append(card);
 
-                var div1 = response.list.temperature;
+                var div1 = tempF;
                 var tempDiv = $("<div>");
                 tempDiv.text(div1);
                 card.append(tempDiv);
