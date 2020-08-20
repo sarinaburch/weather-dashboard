@@ -8,7 +8,6 @@ var searchedCities = $("#search-button");
 searchedCities.push(searchBar);
 localStorage.setItem("searchBar", JSON.stringify(searchedCities));
 
-$("#previous-searches") = JSON.parse(localStorage.getItem("searchBar"));
 
 // creating funtionality to search button and adding to local storage and adding API Key
 
@@ -38,35 +37,50 @@ $("#search-button").on("click", function (event) {
         $("#city-weather").append(iconImg);
 
     });
+});
+// function to display 5-day forecast
 
-    // function to display 5-day forecast
-    var fiveDay = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + ",us&APPID=97dffc6fa8edcd6f709b8c102d9878cf";
+$("#search-button").on("click", function (event) {
+    event.preventDefault();
+
+    var city = $("#search-bar").val();
+
+    // var fiveDay = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + ",us&APPID=97dffc6fa8edcd6f709b8c102d9878cf";
+    var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + ",us&APPID=97dffc6fa8edcd6f709b8c102d9878cf";
 
     $.ajax({
-        url: fiveDay,
+        url: queryURL,
         method: "GET"
     }).then(function (response) {
-        var fiveDiv = ("#five-day");
+        console.log(response);
 
 
-        for (var i = 0; i < response.list.length; i++) {
+
+        for (var i = 0; i < 5; i++) {
+            // var fiveDiv = $("#five-day");
+
+            var tempC = (response.list[i].main.temp);
+            var tempF = (tempC - 273.15) * 1.8 + 32;
+            console.log(tempF);
 
 
-            var temp = response.list[i].temperature;
-            var tempF = (temp - 273.15) * 1.8 + 32;
+            //Getting dates added 
+            var startDate = ("August " + (12 + 1) + " , 2020")
+           
 
             var card = $("<div>")
-            card.text("date");
+
+            card.text("Date: " + startDate);
             $("#five-day").append(card);
 
-            var div1 = tempF;
+            // var div1 = tempF;
             var tempDiv = $("<div>");
-            tempDiv.text(div1);
-            card.append(tempDiv);
+            tempDiv.text("Temperature: " + tempF);
+            $("#five-day").append(tempDiv);
 
             var div2 = $("<div>")
-            div2.text(response.list[i].humidity)
-            div1.append(div2);
+            div2.text("Humidity: " + response.list[i].main.humidity)
+            $(tempDiv).append(div2);
 
 
         }
