@@ -23,6 +23,7 @@ $("#search-button").on("click", function (event) {
         method: "GET"
     }).then(function (response) {
 
+        var uvIndex = "http://api.openweathermap.org/data/2.5/uvi?appid=97dffc6fa8edcd6f709b8c102d9878cf&lat=" + response.coord.lat + "&lon=" + response.coord.lon;
         var tempC = response.main.temp;
         var tempF = (tempC - 273.15) * 1.80 + 32;
         var icon = "https://api.openweathermap.org/img/w/" + response.weather[0].icon + ".png";
@@ -31,12 +32,14 @@ $("#search-button").on("click", function (event) {
         $("#temperature").text("Temperature: " + tempF.toFixed(2) + "\xB0" + "F");
         $("#humidity").text("Humidty: " + response.main.humidity + "%");
         $("#windSpeed").text("Wind Speed: " + response.wind.speed + "MPH");
+        $("#uvIndex").text("UV Index: " + uvIndex);
 
         $("#city-weather").text(response.name);
         iconImg.attr("src", icon)
         $("#city-weather").append(iconImg);
 
     });
+    $("#city-weather").empty();
 });
 // function to display 5-day forecast
 
@@ -54,11 +57,11 @@ $("#search-button").on("click", function (event) {
     }).then(function (response) {
         console.log(response);
 
-        
+
 
         for (var i = 0; i < 5; i++) {
             // var fiveDiv = $("#five-day");
-        var icon = "https://api.openweathermap.org/img/w/" + response.list[i].weather[0].icon + ".png";
+            var icon = "https://api.openweathermap.org/img/w/" + response.list[i].weather[0].icon + ".png";
 
             var tempC = (response.list[i].main.temp);
             var tempF = (tempC - 273.15) * 1.8 + 32;
@@ -84,8 +87,29 @@ $("#search-button").on("click", function (event) {
             div2.text("Humidity: " + response.list[i].main.humidity)
             $(card).append(div2);
 
+            
 
         }
 
-    })
+    });
+    $("#five-day").empty();
+
 });
+    var searches = searchedCities.val().trim()
+
+    $("#search-button").on("click", function (event) {
+        event.preventDefault();
+
+        var prevSearches = $("#search-bar").val();
+        localStorage.setItem("prevSearches", prevSearches);
+
+        function init() {
+            localStorage.getItem("prevSearches", prevSearches);
+
+        }
+
+        var searches = $("<div>");
+        searches.text(prevSearches);
+        $("#previous-searches").append(searches);
+
+    })
